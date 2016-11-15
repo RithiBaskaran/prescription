@@ -55,7 +55,7 @@ class HospitalImpl implements HospitalInterface{
             $query->where('u.delete_status', '=', 1);
 
             $hospitals = $query->get();
-            dd($hospitals);
+            //dd($hospitals);
         }
         catch(QueryException $queryEx)
         {
@@ -95,7 +95,7 @@ class HospitalImpl implements HospitalInterface{
 
             //$query->distinct()
             $hospitals = $query->get();
-            dd($hospitals);
+            //dd($hospitals);
         }
         catch(QueryException $queryEx)
         {
