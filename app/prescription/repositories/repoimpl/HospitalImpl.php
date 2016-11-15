@@ -81,6 +81,7 @@ class HospitalImpl implements HospitalInterface{
     {
         $hospitals = null;
 
+
         try
         {
             $query = DB::table('hospital as h')->distinct()->select('h.id', 'h.hospital_id', 'h.hospital_name',
@@ -93,7 +94,7 @@ class HospitalImpl implements HospitalInterface{
 
             //$query->distinct()
             $hospitals = $query->get();
-            //dd($hospitals);
+            dd($hospitals);
         }
         catch(QueryException $queryEx)
         {
