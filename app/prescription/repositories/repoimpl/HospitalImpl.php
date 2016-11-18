@@ -48,7 +48,8 @@ class HospitalImpl implements HospitalInterface{
         try
         {
             $query = DB::table('hospital as h')->select('h.id', 'h.hospital_id', 'h.hospital_name',
-                'h.address', 'c.city_name', 'co.name as country');
+                DB::raw('CONCAT(h.address, " ", c.city_name, " ", co.name) as hospital_details'));
+                //'h.address as hospital_details', 'c.city_name', 'co.name as country');
             $query->join('users as u', 'u.id', '=', 'h.hospital_id');
             $query->join('cities as c', 'c.id', '=', 'h.city');
             $query->join('countries as co', 'co.id', '=', 'h.country');
